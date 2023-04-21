@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <small-user-profile :users="users"></small-user-profile>
+    <small-user-profile @user_clicked="display_user" :users="users"></small-user-profile>
+    <h1>{{user_clicked}}</h1>
   </div>
 </template>
 
@@ -28,8 +29,14 @@ export default {
           id: 2
         }
       ],
+      user_clicked: undefined,
     }
   },
+  methods: {
+    display_user: function(selected_user) {
+      this.user_clicked = selected_user;
+    }
+  }
 }
 </script>
 
